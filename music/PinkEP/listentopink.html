@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Music Player</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .playlist {
+            background-color: #333;
+            color: white;
+            width: 150px;
+            padding: 20px;
+        }
+
+        .track {
+            cursor: pointer;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #555;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .player-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 10px;
+        }
+
+        .info-container {
+            background-color: #eee;
+            padding: 20px;
+            flex-basis: 400px;
+            overflow-y: auto;
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        .player-container img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px; /* Rounded corners */
+        }
+    </style>
+</head>
+<body>
+
+<div class="playlist">
+    <div class="track" onclick="playTrack('pinkfiles/listentopink/music/Small_Crunch.mp3', 'Small Crunch')">1. Small Crunch</div>
+    <div class="track" onclick="playTrack('pinkfiles/listentopink/music/Cherry_Fields.mp3', 'Cherry Fields')">2. Cherry Fields</div>
+    <div class="track" onclick="playTrack('pinkfiles/listentopink/music/Lovely_Prick.mp3', 'Lovely Prick')">3. Lovely Prick</div>
+    <div class="track" onclick="playTrack('pinkfiles/listentopink/music/Cosy_Night.mp3', 'Cosy Night')">4. Cosy Night</div>
+</div>
+
+<div class="player-container">
+    <img src="pinkfiles/Pink_Art.png" alt="Pink EP Album Art" style="max-width: 300px; height: auto; border-radius: 10px;">
+
+    <div class="info-container">
+        <h1>Pink EP</h1>
+        <audio id="audioPlayer" controls>
+            Your browser does not support the audio element.
+        </audio>
+        <h2>What Happened?</h2>
+        <p>Info About The unreleased Pink EP</p><br><br>
+        <p>I intended to release tracks on the Pink EP, but it never happened due to a missed 2023 deadline.</p><br>
+        <p>There was a website made for it but was never shown. The cover art also changed before the deadline.</p><br>
+        <p>Transitioning from a Pink/Yellow gradient to a vibrant neon pink with bolder text.</p>
+        <p>On the version of the page hosted online the full tracklist hadn't even been yet (Cosy Night wasn't in it) also this wasn't the original tracklist I was still planning on where to put each song and hell I was going to make one more song so the 5th song doesn't even exist.</p>
+    </div>
+</div>
+
+<script>
+    function playTrack(src, name) {
+        var audioPlayer = document.getElementById('audioPlayer');
+        audioPlayer.src = src;
+        audioPlayer.play();
+
+        document.getElementById('trackInfo').innerText = 'Now Playing: ' + name;
+    }
+</script>
+
+</body>
+</html>
